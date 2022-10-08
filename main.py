@@ -21,7 +21,8 @@ while quitVar:
     print(cursor.y)'''
 
     sceneControl.cursorDraw(screen)
-    
+    sceneControl.staticSceneDraw(screen)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             quitVar = False
