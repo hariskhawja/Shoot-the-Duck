@@ -1,17 +1,27 @@
 import pygame
 import duckControl
+import sceneControl
 
 pygame.init()
 pygame.display.set_caption("Shoot the Duck")
-screen = pygame.display.set_mode(800, 800)
+screen = pygame.display.set_mode((1200, 500))
 
-FPS = 60
+pygame.mouse.set_visible(False)
+
+FPS = 120
 fpsClock = pygame.time.Clock()
 
 quitVar = True
 
 while quitVar:
-    screen.fill([255, 255, 255])
+    screen.fill([0, 0, 0])
+
+    '''cursor.cursorDraw(screen)
+    print(cursor.x)
+    print(cursor.y)'''
+
+    sceneControl.cursorDraw(screen)
+    sceneControl.staticSceneDraw(screen)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
