@@ -13,12 +13,12 @@ fpsClock = pygame.time.Clock()
 
 quitVar = True
 
+testDuck = duckControl.Duck(250, 250)
+
 while quitVar:
     screen.fill([0, 0, 0])
 
-    '''cursor.cursorDraw(screen)
-    print(cursor.x)
-    print(cursor.y)'''
+    testDuck.Duckdraw(screen)
 
     sceneControl.cursorDraw(screen)
     sceneControl.staticSceneDraw(screen)
