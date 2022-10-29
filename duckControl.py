@@ -1,17 +1,28 @@
-from xml.etree.ElementTree import PI
 import pygame
 
 class Duck:
-    def __init__(self, x, y):
+    def __init__(self, x, y, colour):
         self.x = x
         self.y = y
+        self.colour = colour
 
     def Duckdraw(self, surface):
-        pygame.draw.circle(surface, [255, 255, 255], (self.x, self.y), 9)
-        '''pygame.draw.arc(surface, [255, 255, 255], (self.x - 50, self.y - 5, 50, 30), 3.14, 2 * 3.14)
-        pygame.draw.line(surface, [255, 255, 255], (self.x - 50, self.y + 9), (self.x, self.y + 9))'''
+        colour = []
+        if (self.colour == "blue"): colour = [0, 0, 150]
 
-        pygame.draw.ellipse(surface, [255, 255, 255], (self.x - 50, self.y + 4, 50, 35))
+        if (self.colour == "green"): colour = [0, 150, 0]
 
-        pygame.draw.polygon(surface, [255, 255, 255], [(self.x - 15, self.y + 9), (self.x - 40, self.y + 35), (self.x - 35, self.y + 9)], width = 1)
-        pygame.draw.polygon(surface, [255, 255, 255], [(self.x + 9, self.y - 2), (self.x + 9, self.y + 2), (self.x + 15, self.y)], width = 1)
+        if (self.colour == "red"): colour = [150, 0, 0]
+
+        if (self.colour == "cyan"): colour = [0, 150, 150]
+
+        if (self.colour == "purple"): colour = [150, 0, 150]
+
+        if (self.colour == "yellow"): colour = [150, 150, 0]
+
+
+        pygame.draw.circle(surface, colour, (self.x, self.y), 9)
+        pygame.draw.ellipse(surface, colour, (self.x - 49, self.y, 50, 20))
+        pygame.draw.polygon(surface, [200, 200, 200], [(self.x + 9, self.y - 2), (self.x + 9, self.y + 2), (self.x + 15, self.y)])
+        pygame.draw.polygon(surface, [200, 200, 200], [(self.x - 10, self.y + 2), (self.x - 45, self.y + 25), (self.x - 50, self.y + 25), (self.x - 35, self.y + 2), (self.x - 30, self.y), (self.x - 15, self.y)])
+
