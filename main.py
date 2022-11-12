@@ -13,25 +13,25 @@ fpsClock = pygame.time.Clock()
 
 quitVar = True
 
-blueDuck = duckControl.Duck(250, 250, "blue")
-greenDuck = duckControl.Duck(350, 250, "green")
-redDuck = duckControl.Duck(450, 250, "red")
-cyanDuck = duckControl.Duck(550, 250, "cyan")
-purpleDuck = duckControl.Duck(650, 250, "purple")
-yellowDuck = duckControl.Duck(750, 250, "yellow")
+blueDuck = duckControl.Duck("blue")
+greenDuck = duckControl.Duck("green")
+redDuck = duckControl.Duck("red")
+cyanDuck = duckControl.Duck("cyan")
+purpleDuck = duckControl.Duck("purple")
+yellowDuck = duckControl.Duck("yellow")
 
 while quitVar:
     screen.fill([0, 0, 0])
 
-    blueDuck.Duckdraw(screen)
-    greenDuck.Duckdraw(screen)
-    redDuck.Duckdraw(screen)
-    cyanDuck.Duckdraw(screen)
-    purpleDuck.Duckdraw(screen)
-    yellowDuck.Duckdraw(screen)
+    blueDuck.duckDraw(screen)
+    greenDuck.duckDraw(screen)
+    redDuck.duckDraw(screen)
+    cyanDuck.duckDraw(screen)
+    purpleDuck.duckDraw(screen)
+    yellowDuck.duckDraw(screen)
 
     sceneControl.cursorDraw(screen)
-    sceneControl.staticSceneDraw(screen)
+    sceneControl.terrainDraw(screen)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
