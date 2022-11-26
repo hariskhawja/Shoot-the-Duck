@@ -5,15 +5,7 @@ CYAN = [0, 150, 150]
 PURPLE = [150, 0, 150]
 YELLOW = [150, 150, 0]
 
-'''
-colours = [
-    [BLUE, 1],
-    [GREEN, 2],
-    [RED, 3],
-    [CYAN, 4],
-    [PURPLE, 5],
-    [YELLOW, 6]
-]'''
+colourList = [BLUE, GREEN, RED, CYAN, PURPLE]
 
 colours = {
     "blue" : [BLUE, 1],
