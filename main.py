@@ -1,6 +1,7 @@
 import pygame
 import duckControl
 import sceneControl
+import math
 # import generationControl
 # from generationControl import ducks
 
@@ -10,6 +11,8 @@ screen = pygame.display.set_mode((1200, 500))
 
 pygame.mouse.set_visible(False)
 
+font = pygame.font.SysFont("Arial", 25)
+
 FPS = 120
 fpsClock = pygame.time.Clock()
 
@@ -17,11 +20,19 @@ quitVar = True
 
 ducks = []
 
-timer = 5000
+timer = 1000
 score = 0
 
 while quitVar:
     screen.fill([0, 0, 0])
+    timerText = font.render("Time: " + str(int(timer / 100)), True, [255, 255, 255])
+    timerRect = timerText.get_rect(center = (120, 90))
+    screen.blit(timerText, timerRect)
+
+    scoreText = font.render("Score: " + str(score), True, [255, 255, 255])
+    scoreRect = scoreText.get_rect(center = (120, 190))
+    screen.blit(scoreText, scoreRect)
+
 
     for duck in ducks:
         if duck.direct == 1 and duck.x > 1300: ducks.remove(duck)
@@ -34,7 +45,7 @@ while quitVar:
     sceneControl.terrainDraw(screen)
 
     if not timer <= 0: 
-        if timer % 23 == 0: ducks.append(duckControl.Duck())
+        if timer % 100 == 0: ducks.append(duckControl.Duck())
         timer -= 1
 
     for event in pygame.event.get():
