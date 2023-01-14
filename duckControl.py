@@ -9,7 +9,6 @@ class Duck:
         self.y = random.randint(50, 400)
         self.colour = random.choice(colours.colourList)
 
-
     def duckDraw(self, surface):
         d = self.direct
         pygame.draw.circle(surface, colours.colourType(self.colour), (self.x, self.y), 9)
@@ -20,6 +19,10 @@ class Duck:
 
         pygame.draw.polygon(surface, [200, 200, 200], [(self.x + 9*d, self.y - 2), (self.x + 9*d, self.y + 2), (self.x + 15*d, self.y)])
         pygame.draw.polygon(surface, [200, 200, 200], [(self.x - 10*d, self.y + 2), (self.x - 45*d, self.y + 25), (self.x - 50*d, self.y + 25), (self.x - 35*d, self.y + 2), (self.x - 30*d, self.y), (self.x - 15*d, self.y)])
+
+        if self.direct == -1: pygame.draw.rect(surface, [255, 255, 255], (self.x - 9, self.y - 25, 59, 49), width=1)
         
+        else: pygame.draw.rect(surface, [255, 255, 255], (self.x - 50, self.y - 25, 59, 34), width=1)
+
         self.x += colours.colourPoints(self.colour)*d
         self.y -= 0.25

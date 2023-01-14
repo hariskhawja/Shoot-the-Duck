@@ -20,7 +20,7 @@ quitVar = True
 
 ducks = []
 
-timer = 1000
+timer = 10000
 score = 0
 
 while quitVar:
@@ -45,7 +45,7 @@ while quitVar:
     sceneControl.terrainDraw(screen)
 
     if not timer <= 0: 
-        if timer % 100 == 0: ducks.append(duckControl.Duck())
+        if timer % 50 == 0: ducks.append(duckControl.Duck())
         timer -= 1
 
     for event in pygame.event.get():
@@ -54,12 +54,12 @@ while quitVar:
             
             for duck in ducks:
                 if duck.direct == -1:
-                    if (position[0] >= duck.x - 9 and position[0] <= duck.x + 50) and (position[1] <= duck.y + 25 and position[1] >= duck.y - 9):
+                    if (position[0] >= duck.x - 9 and position[0] <= duck.x + 50) and (position[1] <= duck.y + 40 and position[1] >= duck.y - 9):
                         ducks.remove(duck)
                         score += 1
 
                 else:
-                    if (position[0] <= duck.x + 9 and position[0] >= duck.x - 50) and (position[1] <= duck.y + 25 and position[1] >= duck.y - 9):
+                    if (position[0] <= duck.x + 9 and position[0] >= duck.x - 50) and (position[1] <= duck.y + 40 and position[1] >= duck.y - 9):
                         ducks.remove(duck)
                         score += 1
 
