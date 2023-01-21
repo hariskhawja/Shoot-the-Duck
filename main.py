@@ -1,7 +1,7 @@
 import pygame
 import duckControl
 import sceneControl
-import math
+import colours
 # import generationControl
 # from generationControl import ducks
 
@@ -55,13 +55,13 @@ while quitVar:
             for duck in ducks:
                 if duck.direct == -1:
                     if (position[0] >= duck.x - 9 and position[0] <= duck.x + 50) and (position[1] <= duck.y + 40 and position[1] >= duck.y - 9):
+                        score += colours.colourPoints(duck.colour)
                         ducks.remove(duck)
-                        score += 1
 
                 else:
                     if (position[0] <= duck.x + 9 and position[0] >= duck.x - 50) and (position[1] <= duck.y + 40 and position[1] >= duck.y - 9):
+                        score += colours.colourPoints(duck.colour)
                         ducks.remove(duck)
-                        score += 1
 
         if event.type == pygame.QUIT:
             quitVar = False
