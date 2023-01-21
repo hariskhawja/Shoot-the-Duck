@@ -1,5 +1,3 @@
-- fix timer by having the seconds align perfectly with the FPS
-- fix point system where points vary based on the speed/difficulty of the birds
 - add main menu screen
 - add game over + score screen
 - implement high score system
