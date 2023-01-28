@@ -2,8 +2,7 @@ import pygame
 import duckControl
 import sceneControl
 import colours
-# import generationControl
-# from generationControl import ducks
+import sceneControl
 
 pygame.init()
 pygame.display.set_caption("Shoot the Duck")
@@ -20,37 +19,25 @@ quitVar = True
 
 ducks = []
 
-timer = 10000
+timer = 5000
 score = 0
+
+gameStage = 0
 
 while quitVar:
     screen.fill([0, 0, 0])
-    timerText = font.render("Time: " + str(int(timer / 100)), True, [255, 255, 255])
-    timerRect = timerText.get_rect(center = (120, 90))
-    screen.blit(timerText, timerRect)
-
-    scoreText = font.render("Score: " + str(score), True, [255, 255, 255])
-    scoreRect = scoreText.get_rect(center = (120, 190))
-    screen.blit(scoreText, scoreRect)
-
-
-    for duck in ducks:
-        if duck.direct == 1 and duck.x > 1300: ducks.remove(duck)
-
-        elif duck.direct == -1 and duck.x < -100: ducks.remove(duck)
-        
-        else: duck.duckDraw(screen)
 
     sceneControl.cursorDraw(screen)
-    sceneControl.terrainDraw(screen)
 
-    if not timer <= 0: 
-        if timer % 50 == 0: ducks.append(duckControl.Duck())
-        timer -= 1
+    if gameStage == 0: startButton = sceneControl.gameStart(screen)
+
+    elif gameStage == 1: ducks, timer, score, gameStage = sceneControl.gameMain(screen, font, ducks, timer, score, gameStage)
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             position = pygame.mouse.get_pos()
+
+            if gameStage == 0 and startButton.collidepoint(pygame.mouse.get_pos()): gameStage = 1
             
             for duck in ducks:
                 if duck.direct == -1:
