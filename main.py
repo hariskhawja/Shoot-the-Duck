@@ -19,7 +19,7 @@ quitVar = True
 
 ducks = []
 
-timer = 5000
+timer = 31000
 score = 0
 
 gameStage = 0
@@ -29,7 +29,7 @@ while quitVar:
 
     sceneControl.cursorDraw(screen)
 
-    if gameStage == 0: startButton = sceneControl.gameStart(screen)
+    if gameStage == 0: startButton = sceneControl.gameStart(screen, font)
 
     elif gameStage == 1: ducks, timer, score, gameStage = sceneControl.gameMain(screen, font, ducks, timer, score, gameStage)
 
