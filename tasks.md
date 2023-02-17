@@ -1,5 +1,0 @@
-- add main menu screen
-- add game over + score screen
-- implement high score system
-- add special game over + score screen for high score
-- optimization/comments/clean up
